@@ -19,30 +19,34 @@ Mortgage::Mortgage(float L, float R, int Y)
 	years = Y;
 }
 
-
+//funtion to return the loan
 float Mortgage::getLoan()
 {
 	return loan;
 }
 
+//function to return the rate
 float Mortgage::getRate()
 {
 	return rate;
 }
 
+//function to return the years
 int Mortgage::getYears()
 {
 	return years;
 }
 
+//function to get the term
 float Mortgage::getTerm()
 {
-	float term;
+	float term; 
 	term = pow(1 + (rate / 12), 12 * years); 
 	return term;
 }
 
-float Mortgage::getmonthlypayment()
+//function to find the monthly payment
+float Mortgage::getMonthlyPayment()
 {
 	float monthlypayment;
 	monthlypayment = (loan * (rate / 12) * getTerm() / (getTerm() - 1));
@@ -50,9 +54,11 @@ float Mortgage::getmonthlypayment()
 }
 
 
-
-float totalPayment()
+//this function will find the total payment
+float Mortgage::getTotalPayment()
 {
-
+	float totalpayment;
+	totalpayment = (12 * getMonthlyPayment() * years); //take the 12 months of payments times the years of the loan
+	return totalpayment;
 
 }

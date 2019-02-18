@@ -15,6 +15,6 @@ public:
 	float getLoan(); //prototype to return the loan
 	float getRate(); //prototype to return the rate
 	int getYears();  //prototype to return the years
-	float getmonthlypayment(); //prototype to get the monthly payment
-
+	float getMonthlyPayment(); //prototype to get the monthly payment
+	float getTotalPayment();
 };

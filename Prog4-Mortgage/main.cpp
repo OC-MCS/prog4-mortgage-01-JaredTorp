@@ -1,14 +1,15 @@
 //=====================================================
 // Jared Torp
 // Friday February 8th
-// Programming II Assignment #3
-// Description: The Machine
+// Programming II Assignment #4
+// Description: Mortgage
 //=====================================================
 #include <iostream>
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include "Mortgage.h"
+#include "Mortgage.h" //include the header file
+#include <iomanip> 
 using namespace std;
 
 bool parseInt(string sval, int& val); //prototype for parseint
@@ -62,15 +63,15 @@ int main()
 	
 	Mortgage temp(loan, rate, years); //creates an object of mortgage, then passes the values to set the loan, rate and years
 
-
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Your monthy payment for your home mortgage is $"  <<  temp.getMonthlyPayment() << endl; //cout the monthly payment
+	cout << "Your total amount paid to the bank at the end of the loan is $"  << temp.getTotalPayment() << endl; //cout the total amount
 
 
 
 }
 
-//START ON THE VALIDATION
-//THEN CHANGE THE CLASS AND THE MORTGAGE.CPP
-//THEN FINISH MAIN AND YOU GOT A PROGRAM
+
 
 //======================================================
 // function name: parseInt
