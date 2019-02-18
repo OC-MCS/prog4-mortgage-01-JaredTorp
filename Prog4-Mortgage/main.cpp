@@ -8,35 +8,63 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include "Mortgage.h"
 using namespace std;
+
+bool parseInt(string sval, int& val); //prototype for parseint
+bool parseFloat(string sval, float& val); //prototype for parsefloat
+bool validFloatInput(string str, float& number); //prototype for checking the float inputs
+bool validIntInput(string str, int& number); //prototype for checking the int input
 
 // main goes here. Code that *uses* the Mortgage class
 // goes in this file
 int main()
 {
-	//all data types are strings (for now) to test for garbage input
-	string stringloan; //string to test for garbage input
+	
+	string strLoan; //string to test for garbage input
 	float loan; //holds the loan and passes it to member functions
-	string stringrate;  //string to test for garbage input
+	string strRate;  //string to test for garbage input
 	float rate;//holds the interest rate and passes it to member functions
-	string stringyears; //string to test for garbage input
+	string strYears; //string to test for garbage input
 	int years; //holds the number of years and passes it to member functions
 
 	cout << "Hello! this program will calculate the monthly payment on a home mortgage!\n";
 	cout << "please enter the amount, in dollars, of the loan amount: ";
-	getline(cin, stringloan);
+	getline(cin, strLoan);
+	
 	//validation loop for both negative numbers and string
-	// member function call to store loan
+	while (!validFloatInput(strLoan, loan)) //function call to check the input
+	{
+		getline(cin, strLoan); //if the input if garbage, re-input 
+
+	}
+
 
 	cout << "please enter the amount, in dollars, of the interest rate: ";
-	getline(cin, stringloan);
+	getline(cin, strRate);
+	
 	//validation loop for both negative numbers and string
-	// member function call to store the interest rate
+	while (!validFloatInput(strRate, rate)) //function call to check the input
+	{
+		getline(cin, strRate); //if the input if garbage, re-input 
 
-	cout << "please enter the amount, in dollars, of the loan amount: ";
-	getline(cin, stringloan);
+	}
+
+	cout << "please enter the number of years of the loan: ";
+	getline(cin, strYears);
+	
 	//validation loop for both negative numbers and string
-	// member function call to store years
+	while (!validIntInput(strYears, years)) //function call to check the input
+	{
+		getline(cin, strYears); //if the input if garbage, re-input 
+
+	}
+	
+	Mortgage temp(loan, rate, years); //creates an object of mortgage, then passes the values to set the loan, rate and years
+
+
+
+
 
 }
 
@@ -88,4 +116,55 @@ bool parseFloat(string sval, float& val)
 		success = false;
 	}
 	return success;
+}
+
+
+//======================================================
+// function name: validfloatinput
+// parameters: 
+// String str: we pass the string inputs, 
+// Float& number: we pass an empty float bucket, number, by reference
+// return type: bool, this checks to see if the input is garbage or not
+//======================================================
+bool validFloatInput(string str, float& number)
+{
+	bool isvalid = true;
+
+	if (!parseFloat(str, number)) //check to see if the input is garbage 
+	{
+		cout << "ERROR: Invalid input, please enter a numerical value" << endl;
+		isvalid = false;
+	}
+	else if (number < 0) //check to see if the numerical value is negative
+	{
+		cout << "Error, enter a postive number" << endl;
+		isvalid = false;
+	}
+
+	return isvalid;
+}
+
+//======================================================
+// function name: validintinput
+// parameters: 
+// String str: we pass the string inputs, 
+// int& number: we pass an empty int bucket, number, by reference
+// return type: bool, this checks to see if the input is garbage or not
+//======================================================
+bool validIntInput(string str, int& number)
+{
+	bool isvalid = true;
+
+	if (!parseInt(str, number)) //check to see if the input is garbage 
+	{
+		cout << "ERROR: Invalid input, please enter a numerical value" << endl;
+		isvalid = false;
+	}
+	else if (number < 0) //check to see if the numerical value is negative
+	{
+		cout << "Error, enter a postive number" << endl;
+		isvalid = false;
+	}
+
+	return isvalid;
 }
