@@ -16,5 +16,5 @@ public:
 	float getRate(); //prototype to return the rate
 	int getYears();  //prototype to return the years
 	float getMonthlyPayment(); //prototype to get the monthly payment
-	float getTotalPayment();
+	float getTotalPayment(); //prototype for the total payment
 };
