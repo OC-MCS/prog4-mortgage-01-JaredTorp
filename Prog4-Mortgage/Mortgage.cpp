@@ -3,7 +3,11 @@
 #include <cmath>
 
 
-//default constructor
+//======================================================
+// function name: Mortgage::Mortgage
+// parameters: none
+// return type: none, its a constructor
+//======================================================
 Mortgage::Mortgage()
 {
 	loan = 0;
@@ -11,16 +15,54 @@ Mortgage::Mortgage()
 	years = 0;
 }
 
-//constructor that sets the loan, rate, and years into the private members
+//======================================================
+// function name: Motgage::getLoan()
+// parameters: none
+// return type: float, we want to return the loan
+//======================================================
+float Mortgage::getLoan()
+{
+	return loan;
+}
+
+//======================================================
+// function name: Motgage::getRate()
+// parameters: none
+// return type: float, we want to return the rate
+//======================================================
+float Mortgage::getRate()
+{
+	return rate;
+}
+
+//======================================================
+// function name: Motgage::getRate()
+// parameters: none
+// return type: int,  we want to return the years
+//======================================================
+int Mortgage::getYears()
+{
+	return years;
+}
+
+//======================================================
+// function name: Mortgage::Mortgage(float L, float R, int y)
+// parameters: we pass the user input data, float l, float r, and int y
+// return type: none, its a constructor
+//======================================================
 Mortgage::Mortgage(float L, float R, int Y)
 {
-	loan = L;
+	loan = L; 
 	rate = R;
 	years = Y;
 }
 
 
-//function to get the term
+//======================================================
+// function name: Motgage::getTerm()
+// parameters: none
+// return type: float, we want to find the term
+//======================================================
 float Mortgage::getTerm()
 {
 	float term; 
@@ -28,7 +70,11 @@ float Mortgage::getTerm()
 	return term;
 }
 
-//function to find the monthly payment
+//======================================================
+// function name: Motgage::getMonthlyPayment()
+// parameters: none
+// return type: float, this will calculate the term and retun it as a float
+//======================================================
 float Mortgage::getMonthlyPayment()
 {
 	float monthlypayment;
@@ -37,7 +83,11 @@ float Mortgage::getMonthlyPayment()
 }
 
 
-//this function will find the total payment
+//======================================================
+// function name: Motgage::getTotalPayment()
+// parameters: none
+// return type: float, this calculates the total payment and returns it as float
+//======================================================
 float Mortgage::getTotalPayment()
 {
 	float totalpayment;

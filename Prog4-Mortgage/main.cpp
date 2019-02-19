@@ -19,6 +19,7 @@ bool validIntInput(string str, int& number); //prototype for checking the int in
 
 // main goes here. Code that *uses* the Mortgage class
 // goes in this file
+
 int main()
 {
 	
@@ -41,7 +42,7 @@ int main()
 	}
 
 
-	cout << "please enter the amount, in dollars, of the interest rate: ";
+	cout << "please enter the amount, in percent, of the interest rate: ";
 	getline(cin, strRate);
 	
 	//validation loop for both negative numbers and string
@@ -51,21 +52,23 @@ int main()
 
 	}
 
-	cout << "please enter the number of years of the loan: ";
-	getline(cin, strYears);
+	rate = rate / 100; //this will convert the input to a decimal value, for the percentage
+	
+
+	cout << "please enter the number of years of the loan: "; 
+	getline(cin, strYears); //users enters the years
 	
 	//validation loop for both negative numbers and string
 	while (!validIntInput(strYears, years)) //function call to check the input
 	{
 		getline(cin, strYears); //if the input if garbage, re-input 
-
 	}
 	
 	Mortgage temp(loan, rate, years); //creates an object of mortgage, then passes the values to set the loan, rate and years
 
-	cout << fixed << showpoint << setprecision(2);
-	cout << "Your monthy payment for your home mortgage is $"  <<  temp.getMonthlyPayment() << endl; //cout the monthly payment
-	cout << "Your total amount paid to the bank at the end of the loan is $"  << temp.getTotalPayment() << endl; //cout the total amount
+	cout << fixed << showpoint << setprecision(2); //handles the decimals for change
+	cout << "Your monthy payment for your home mortgage is $"  <<  temp.getMonthlyPayment() << endl; //cout the monthly payment, and call the member function to get the monthy payment
+	cout << "Your total amount paid to the bank at the end of the loan is $"  << temp.getTotalPayment() << endl; //cout the total payment, and call the member function to get the total payment
 
 
 
@@ -138,7 +141,7 @@ bool validFloatInput(string str, float& number)
 	}
 	else if (number < 0) //check to see if the numerical value is negative
 	{
-		cout << "Error, enter a postive number" << endl;
+		cout << "ERROR, enter a postive number" << endl;
 		isvalid = false;
 	}
 
