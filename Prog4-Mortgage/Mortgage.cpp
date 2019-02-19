@@ -19,23 +19,6 @@ Mortgage::Mortgage(float L, float R, int Y)
 	years = Y;
 }
 
-//funtion to return the loan
-float Mortgage::getLoan()
-{
-	return loan;
-}
-
-//function to return the rate
-float Mortgage::getRate()
-{
-	return rate;
-}
-
-//function to return the years
-int Mortgage::getYears()
-{
-	return years;
-}
 
 //function to get the term
 float Mortgage::getTerm()
