@@ -72,7 +72,7 @@ int main()
 	cout << "Your monthy payment for your home mortgage is $"  <<  temp.getMonthlyPayment() << endl; //cout the monthly payment, and call the member function to get the monthy payment
 	cout << "Your total amount paid to the bank at the end of the loan is $"  << temp.getTotalPayment() << endl; //cout the total payment, and call the member function to get the total payment
 
-
+	 
 
 }
 
