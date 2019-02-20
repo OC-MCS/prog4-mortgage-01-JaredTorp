@@ -52,7 +52,7 @@ int main()
 
 	}
 
-	rate = rate / 100; //this will convert the input to a decimal value, for the percentage
+	rate = (rate / 100); //this will convert the input to a decimal value, for the percentage
 	
 
 	cout << "please enter the number of years of the loan: "; 
@@ -67,6 +67,8 @@ int main()
 	Mortgage temp(loan, rate, years); //creates an object of mortgage, then passes the values to set the loan, rate and years
 
 	cout << fixed << showpoint << setprecision(2); //handles the decimals for change
+
+
 	cout << "Your monthy payment for your home mortgage is $"  <<  temp.getMonthlyPayment() << endl; //cout the monthly payment, and call the member function to get the monthy payment
 	cout << "Your total amount paid to the bank at the end of the loan is $"  << temp.getTotalPayment() << endl; //cout the total payment, and call the member function to get the total payment
 

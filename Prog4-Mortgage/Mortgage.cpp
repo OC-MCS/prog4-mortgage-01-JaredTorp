@@ -3,6 +3,7 @@
 #include <cmath>
 
 
+
 //======================================================
 // function name: Mortgage::Mortgage
 // parameters: none
@@ -66,7 +67,7 @@ Mortgage::Mortgage(float L, float R, int Y)
 float Mortgage::getTerm()
 {
 	float term; 
-	term = pow(1 + (rate / 12), 12 * years); 
+	term = pow((1 + (rate / 12)), (12 * years)); 
 	return term;
 }
 
@@ -78,7 +79,7 @@ float Mortgage::getTerm()
 float Mortgage::getMonthlyPayment()
 {
 	float monthlypayment;
-	monthlypayment = (loan * (rate / 12) * getTerm() / (getTerm() - 1));
+	monthlypayment = (loan * (rate / 12) * getTerm()) / (getTerm() - 1);
 	return monthlypayment;
 }
 
@@ -91,7 +92,7 @@ float Mortgage::getMonthlyPayment()
 float Mortgage::getTotalPayment()
 {
 	float totalpayment;
-	totalpayment = (12 * getMonthlyPayment() * years); //take the 12 months of payments times the years of the loan
+	totalpayment = ((12 * getMonthlyPayment()) * years); //take the 12 months of payments times the years of the loan
 	return totalpayment;
 
 }
